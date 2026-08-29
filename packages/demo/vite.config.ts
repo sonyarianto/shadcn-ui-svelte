@@ -7,7 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '$lib': './src/lib',
-      '@shadcn-ui-svelte/components': '../components/src'
+      '@shadcn-ui-svelte/components': '../components/src/index.ts'
     }
   }
 });
