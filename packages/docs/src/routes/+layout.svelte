@@ -87,7 +87,10 @@
             <a
               href={item.href}
               data-active={isActive(item.href)}
-              class="relative inline-flex h-8 items-center justify-center rounded-md px-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground {isActive(item.href) ? 'text-foreground' : 'text-foreground/60'}"
+              data-slot="button"
+              data-variant="ghost"
+              data-size="sm"
+              class="inline-flex shrink-0 items-center justify-center text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 gap-1.5 rounded-md px-2.5 relative"
             >
               {item.label}
             </a>
