@@ -54,6 +54,7 @@ export { default as DialogHeader } from './ui/dialog-header.svelte';
 export { default as DialogTitle } from './ui/dialog-title.svelte';
 export { default as DialogDescription } from './ui/dialog-description.svelte';
 export { default as DialogClose } from './ui/dialog-close.svelte';
+export { default as DialogFooter } from './ui/dialog-footer.svelte';
 export { default as Direction } from './ui/direction.svelte';
 export { default as Drawer } from './ui/drawer.svelte';
 export { default as DrawerContent } from './ui/drawer-content.svelte';
@@ -86,6 +87,7 @@ export { default as NavigationMenuItem } from './ui/navigation-menu-item.svelte'
 export { default as NavigationMenuTrigger } from './ui/navigation-menu-trigger.svelte';
 export { default as NavigationMenuViewport } from './ui/navigation-menu-viewport.svelte';
 export { default as NavigationMenuContent } from './ui/navigation-menu-content.svelte';
+export { default as NavigationMenuLink } from './ui/navigation-menu-link.svelte';
 export { default as Pagination } from './ui/pagination.svelte';
 export { default as PaginationContent } from './ui/pagination-content.svelte';
 export { default as PaginationItem } from './ui/pagination-item.svelte';

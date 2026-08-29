@@ -1,22 +1,18 @@
 <script lang="ts">
+  import { Accordion } from 'bits-ui';
   import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
     children,
     ...restProps
-  }: {
-    class?: string;
-    children?: Snippet;
-  } & HTMLAttributes<HTMLDivElement> = $props();
+  }: Accordion.RootProps & { children?: Snippet } = $props();
 </script>
 
-<div
+<Accordion.Root
   class={cn('space-y-2', className)}
-  data-slot="accordion"
   {...restProps}
 >
   {@render children?.()}
-</div>
+</Accordion.Root>

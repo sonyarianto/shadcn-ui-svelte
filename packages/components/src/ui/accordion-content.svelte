@@ -1,22 +1,18 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import { Accordion } from 'bits-ui';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
-    children,
     ...restProps
-  }: {
-    class?: string;
-    children?: Snippet;
-  } & HTMLAttributes<HTMLDivElement> = $props();
+  }: Accordion.ContentProps = $props();
 </script>
 
-<div
+<Accordion.Content
   class={cn('overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down', className)}
-  data-slot="accordion-content"
   {...restProps}
 >
-  <div class="pb-4 pt-0">{@render children?.()}</div>
-</div>
+  <div class="pb-4 pt-0">
+    <slot />
+  </div>
+</Accordion.Content>

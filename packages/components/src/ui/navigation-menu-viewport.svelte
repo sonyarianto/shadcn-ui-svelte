@@ -1,25 +1,17 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import { NavigationMenu } from 'bits-ui';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
-    children,
     ...restProps
-  }: {
-    class?: string;
-    children?: Snippet;
-  } & HTMLAttributes<HTMLDivElement> = $props();
+  }: NavigationMenu.ViewportProps = $props();
 </script>
 
-<div
+<NavigationMenu.Viewport
   class={cn(
-    'absolute left-0 top-full flex justify-center',
+    'relative mt-1.5 h-[var(--bits-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90',
     className
   )}
-  data-slot="navigation-menu-viewport"
   {...restProps}
->
-  {@render children?.()}
-</div>
+/>

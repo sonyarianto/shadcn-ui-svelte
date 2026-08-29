@@ -1,22 +1,14 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import { Dialog } from 'bits-ui';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
-    children,
     ...restProps
-  }: {
-    class?: string;
-    children?: Snippet;
-  } & HTMLAttributes<HTMLParagraphElement> = $props();
+  }: Dialog.DescriptionProps = $props();
 </script>
 
-<p
+<Dialog.Description
   class={cn('text-sm text-muted-foreground', className)}
-  data-slot="dialog-description"
   {...restProps}
->
-  {@render children?.()}
-</p>
+/>

@@ -1,37 +1,41 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import { Select } from 'bits-ui';
   import { cn } from '$lib/utils.js';
 
   let {
-    value = '',
-    disabled = false,
-    selected = false,
     class: className,
-    children,
+    value,
+    disabled = false,
     ...restProps
-  }: {
-    value?: string;
-    disabled?: boolean;
-    selected?: boolean;
-    class?: string;
-    children?: Snippet;
-  } & HTMLAttributes<HTMLDivElement> = $props();
+  }: Select.ItemProps = $props();
 </script>
 
-<div
-  role="option"
-  aria-selected={selected}
+<Select.Item
+  {value}
   {disabled}
-  data-value={value}
   class={cn(
-    'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-    disabled ? 'pointer-events-none opacity-50' : '',
-    selected ? 'bg-accent text-accent-foreground' : '',
+    'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
     className
   )}
-  data-slot="select-item"
   {...restProps}
 >
-  {@render children?.()}
-</div>
+  <span class="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">
+    <Select.ItemIndicator>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-4 w-4"
+      >
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </Select.ItemIndicator>
+  </span>
+  <Select.ItemText />
+</Select.Item>

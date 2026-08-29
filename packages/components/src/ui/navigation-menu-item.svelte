@@ -1,22 +1,14 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import { NavigationMenu } from 'bits-ui';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
-    children,
     ...restProps
-  }: {
-    class?: string;
-    children?: Snippet;
-  } & HTMLAttributes<HTMLLIElement> = $props();
+  }: NavigationMenu.ItemProps = $props();
 </script>
 
-<li
+<NavigationMenu.Item
   class={cn('', className)}
-  data-slot="navigation-menu-item"
   {...restProps}
->
-  {@render children?.()}
-</li>
+/>

@@ -1,25 +1,17 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import { NavigationMenu } from 'bits-ui';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
-    children,
     ...restProps
-  }: {
-    class?: string;
-    children?: Snippet;
-  } & HTMLAttributes<HTMLUListElement> = $props();
+  }: NavigationMenu.ListProps = $props();
 </script>
 
-<ul
+<NavigationMenu.List
   class={cn(
     'group flex flex-1 list-none items-center justify-center space-x-1',
     className
   )}
-  data-slot="navigation-menu-list"
   {...restProps}
->
-  {@render children?.()}
-</ul>
+/>

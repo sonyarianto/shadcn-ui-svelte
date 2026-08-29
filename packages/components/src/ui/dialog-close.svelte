@@ -1,22 +1,18 @@
 <script lang="ts">
-  import type { HTMLButtonAttributes } from 'svelte/elements';
+  import { Dialog } from 'bits-ui';
   import { cn } from '$lib/utils.js';
-  import Button from './button.svelte';
 
   let {
     class: className,
     ...restProps
-  }: {
-    class?: string;
-  } & HTMLButtonAttributes = $props();
+  }: Dialog.CloseProps = $props();
 </script>
 
-<Button
+<Dialog.Close
   class={cn(
     'absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground',
     className
   )}
-  data-slot="dialog-close"
   {...restProps}
 >
   <svg
@@ -35,4 +31,4 @@
     <path d="m6 6 12 12" />
   </svg>
   <span class="sr-only">Close</span>
-</Button>
+</Dialog.Close>

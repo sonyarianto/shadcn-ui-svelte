@@ -1,28 +1,19 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import { DropdownMenu } from 'bits-ui';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
     inset = false,
-    children,
     ...restProps
-  }: {
-    class?: string;
-    inset?: boolean;
-    children?: Snippet;
-  } & HTMLAttributes<HTMLDivElement> = $props();
+  }: DropdownMenu.LabelProps & { inset?: boolean } = $props();
 </script>
 
-<div
+<DropdownMenu.Label
   class={cn(
-    'flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none',
+    'px-2 py-1.5 text-sm font-semibold',
     inset && 'pl-8',
     className
   )}
-  data-slot="dropdown-menu-label"
   {...restProps}
->
-  {@render children?.()}
-</div>
+/>

@@ -1,25 +1,17 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import { NavigationMenu } from 'bits-ui';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
-    children,
     ...restProps
-  }: {
-    class?: string;
-    children?: Snippet;
-  } & HTMLAttributes<HTMLDivElement> = $props();
+  }: NavigationMenu.ContentProps = $props();
 </script>
 
-<div
+<NavigationMenu.Content
   class={cn(
-    'x-positioning absolute top-full z-50',
+    'absolute left-0 top-full z-50',
     className
   )}
-  data-slot="navigation-menu-content"
   {...restProps}
->
-  {@render children?.()}
-</div>
+/>
