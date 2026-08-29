@@ -1,23 +1,25 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte';
   import '../shadcn.css';
   import { page } from '$app/stores';
 
   let { children } = $props();
 
   let isDark = $state(false);
+  let isMobileMenuOpen = $state(false);
 
   function toggleTheme() {
     isDark = !isDark;
     document.documentElement.classList.toggle('dark', isDark);
   }
 
-  const navItems = [
-    { href: '/docs', label: 'Introduction' },
-    { href: '/docs/installation', label: 'Installation' },
-    { href: '/components', label: 'Components' },
-    { href: '/docs/theming', label: 'Theming' },
-    { href: '/docs/cli', label: 'CLI' },
-    { href: '/docs/migration', label: 'Migration' }
+  const topNavItems = [
+    { href: '/docs', label: 'Docs' },
+    { href: '/docs/components', label: 'Components' },
+    { href: '/docs/blocks', label: 'Blocks' },
+    { href: '/docs/charts', label: 'Charts' },
+    { href: '/docs/colors', label: 'Colors' },
+    { href: '/docs/typeset', label: 'Typeset' }
   ];
 </script>
 
@@ -31,19 +33,28 @@
           <path d="m9 9 6 6"/>
         </svg>
         <span class="font-bold">shadcn/ui</span>
-        <span class="text-xs text-muted-foreground">Svelte</span>
       </a>
-      <nav class="flex items-center gap-6 text-sm">
-        {#each navItems as item}
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        {#each topNavItems as item}
           <a
             href={item.href}
-            class="transition-colors hover:text-foreground/80 {$page.url.pathname === item.href ? 'text-foreground' : 'text-foreground/60'}"
+            class="transition-colors hover:text-foreground/80 {$page.url.pathname.startsWith(item.href) ? 'text-foreground' : 'text-foreground/60'}"
           >
             {item.label}
           </a>
         {/each}
       </nav>
       <div class="ml-auto flex items-center gap-2">
+        <button
+          onclick={() => isMobileMenuOpen = !isMobileMenuOpen}
+          class="md:hidden inline-flex items-center justify-center rounded-md text-sm font-medium h-9 w-9"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+            <line x1="4" x2="20" y1="12" y2="12"/>
+            <line x1="4" x2="20" y1="6" y2="6"/>
+            <line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
         <a
           href="https://github.com/sonyarianto/shadcn-ui-svelte"
           target="_blank"
