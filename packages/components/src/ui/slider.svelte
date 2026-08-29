@@ -73,6 +73,7 @@
     aria-valuemin={min}
     aria-valuemax={max}
     aria-valuenow={value}
+    tabindex="0"
     onmousedown={handleMouseDown}
   >
     <div
