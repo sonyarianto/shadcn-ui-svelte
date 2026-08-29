@@ -1,95 +1,88 @@
 <script lang="ts">
-  import { page } from '$app/stores';
-
   const components = [
-    { name: 'accordion', label: 'Accordion', category: 'Layout' },
-    { name: 'alert', label: 'Alert', category: 'Feedback' },
-    { name: 'alert-dialog', label: 'Alert Dialog', category: 'Overlay' },
-    { name: 'aspect-ratio', label: 'Aspect Ratio', category: 'Layout' },
-    { name: 'attachment', label: 'Attachment', category: 'Data Display' },
-    { name: 'avatar', label: 'Avatar', category: 'Data Display' },
-    { name: 'badge', label: 'Badge', category: 'Data Display' },
-    { name: 'breadcrumb', label: 'Breadcrumb', category: 'Navigation' },
-    { name: 'bubble', label: 'Bubble', category: 'Data Display' },
-    { name: 'button', label: 'Button', category: 'Action' },
-    { name: 'button-group', label: 'Button Group', category: 'Action' },
-    { name: 'calendar', label: 'Calendar', category: 'Date' },
-    { name: 'card', label: 'Card', category: 'Data Display' },
-    { name: 'carousel', label: 'Carousel', category: 'Layout' },
-    { name: 'chart', label: 'Chart', category: 'Data Display' },
-    { name: 'checkbox', label: 'Checkbox', category: 'Input' },
-    { name: 'collapsible', label: 'Collapsible', category: 'Layout' },
-    { name: 'combobox', label: 'Combobox', category: 'Input' },
-    { name: 'command', label: 'Command', category: 'Input' },
-    { name: 'context-menu', label: 'Context Menu', category: 'Overlay' },
-    { name: 'data-table', label: 'Data Table', category: 'Data Display' },
-    { name: 'date-picker', label: 'Date Picker', category: 'Date' },
-    { name: 'dialog', label: 'Dialog', category: 'Overlay' },
-    { name: 'direction', label: 'Direction', category: 'Layout' },
-    { name: 'drawer', label: 'Drawer', category: 'Overlay' },
-    { name: 'dropdown-menu', label: 'Dropdown Menu', category: 'Overlay' },
-    { name: 'empty', label: 'Empty', category: 'Data Display' },
-    { name: 'field', label: 'Field', category: 'Form' },
-    { name: 'form', label: 'Form', category: 'Form' },
-    { name: 'hover-card', label: 'Hover Card', category: 'Overlay' },
-    { name: 'input', label: 'Input', category: 'Input' },
-    { name: 'input-group', label: 'Input Group', category: 'Input' },
-    { name: 'input-otp', label: 'Input OTP', category: 'Input' },
-    { name: 'item', label: 'Item', category: 'Data Display' },
-    { name: 'kbd', label: 'Kbd', category: 'Data Display' },
-    { name: 'label', label: 'Label', category: 'Form' },
-    { name: 'marker', label: 'Marker', category: 'Data Display' },
-    { name: 'menubar', label: 'Menubar', category: 'Navigation' },
-    { name: 'message', label: 'Message', category: 'Data Display' },
-    { name: 'message-scroller', label: 'Message Scroller', category: 'Data Display' },
-    { name: 'native-select', label: 'Native Select', category: 'Input' },
-    { name: 'navigation-menu', label: 'Navigation Menu', category: 'Navigation' },
-    { name: 'pagination', label: 'Pagination', category: 'Navigation' },
-    { name: 'popover', label: 'Popover', category: 'Overlay' },
-    { name: 'progress', label: 'Progress', category: 'Feedback' },
-    { name: 'questionnaire', label: 'Questionnaire', category: 'Form' },
-    { name: 'radio-group', label: 'Radio Group', category: 'Input' },
-    { name: 'resizable', label: 'Resizable', category: 'Layout' },
-    { name: 'scroll-area', label: 'Scroll Area', category: 'Layout' },
-    { name: 'select', label: 'Select', category: 'Input' },
-    { name: 'separator', label: 'Separator', category: 'Layout' },
-    { name: 'sheet', label: 'Sheet', category: 'Overlay' },
-    { name: 'sidebar', label: 'Sidebar', category: 'Layout' },
-    { name: 'skeleton', label: 'Skeleton', category: 'Feedback' },
-    { name: 'slider', label: 'Slider', category: 'Input' },
-    { name: 'sonner', label: 'Sonner', category: 'Feedback' },
-    { name: 'spinner', label: 'Spinner', category: 'Feedback' },
-    { name: 'switch', label: 'Switch', category: 'Input' },
-    { name: 'table', label: 'Table', category: 'Data Display' },
-    { name: 'tabs', label: 'Tabs', category: 'Navigation' },
-    { name: 'textarea', label: 'Textarea', category: 'Input' },
-    { name: 'toast', label: 'Toast', category: 'Feedback' },
-    { name: 'toggle', label: 'Toggle', category: 'Action' },
-    { name: 'toggle-group', label: 'Toggle Group', category: 'Action' },
-    { name: 'tooltip', label: 'Tooltip', category: 'Overlay' },
-    { name: 'typography', label: 'Typography', category: 'Data Display' }
+    { name: 'accordion', label: 'Accordion' },
+    { name: 'alert', label: 'Alert' },
+    { name: 'alert-dialog', label: 'Alert Dialog' },
+    { name: 'aspect-ratio', label: 'Aspect Ratio' },
+    { name: 'avatar', label: 'Avatar' },
+    { name: 'badge', label: 'Badge' },
+    { name: 'breadcrumb', label: 'Breadcrumb' },
+    { name: 'button', label: 'Button' },
+    { name: 'button-group', label: 'Button Group' },
+    { name: 'calendar', label: 'Calendar' },
+    { name: 'card', label: 'Card' },
+    { name: 'carousel', label: 'Carousel' },
+    { name: 'chart', label: 'Chart' },
+    { name: 'checkbox', label: 'Checkbox' },
+    { name: 'collapsible', label: 'Collapsible' },
+    { name: 'combobox', label: 'Combobox' },
+    { name: 'command', label: 'Command' },
+    { name: 'context-menu', label: 'Context Menu' },
+    { name: 'data-table', label: 'Data Table' },
+    { name: 'date-picker', label: 'Date Picker' },
+    { name: 'dialog', label: 'Dialog' },
+    { name: 'drawer', label: 'Drawer' },
+    { name: 'dropdown-menu', label: 'Dropdown Menu' },
+    { name: 'form', label: 'Form' },
+    { name: 'hover-card', label: 'Hover Card' },
+    { name: 'input', label: 'Input' },
+    { name: 'input-group', label: 'Input Group' },
+    { name: 'input-otp', label: 'Input OTP' },
+    { name: 'kbd', label: 'Kbd' },
+    { name: 'label', label: 'Label' },
+    { name: 'menubar', label: 'Menubar' },
+    { name: 'native-select', label: 'Native Select' },
+    { name: 'navigation-menu', label: 'Navigation Menu' },
+    { name: 'pagination', label: 'Pagination' },
+    { name: 'popover', label: 'Popover' },
+    { name: 'progress', label: 'Progress' },
+    { name: 'radio-group', label: 'Radio Group' },
+    { name: 'resizable', label: 'Resizable' },
+    { name: 'scroll-area', label: 'Scroll Area' },
+    { name: 'select', label: 'Select' },
+    { name: 'separator', label: 'Separator' },
+    { name: 'sheet', label: 'Sheet' },
+    { name: 'skeleton', label: 'Skeleton' },
+    { name: 'slider', label: 'Slider' },
+    { name: 'sonner', label: 'Sonner' },
+    { name: 'switch', label: 'Switch' },
+    { name: 'table', label: 'Table' },
+    { name: 'tabs', label: 'Tabs' },
+    { name: 'textarea', label: 'Textarea' },
+    { name: 'toast', label: 'Toast' },
+    { name: 'toggle', label: 'Toggle' },
+    { name: 'toggle-group', label: 'Toggle Group' },
+    { name: 'tooltip', label: 'Tooltip' }
   ];
-
-  const categories = [...new Set(components.map(c => c.category))];
 </script>
 
-<div class="py-6 lg:py-10">
-  <div class="mb-8">
-    <h1 class="mb-2 text-3xl font-bold md:text-4xl">Components</h1>
-    <p class="text-lg text-muted-foreground">
-      A set of beautifully designed components that you can customize, extend, and build on.
-    </p>
-  </div>
+<div class="flex scroll-mt-24 items-stretch pb-8 text-[1.05rem] sm:text-[15px]">
+  <div class="flex min-w-0 flex-1 flex-col">
+    <div class="h-4 shrink-0"></div>
+    <div class="mx-auto flex w-full max-w-160 min-w-0 flex-1 flex-col gap-6 px-4 py-6 text-foreground md:px-0 lg:py-8">
+      <!-- Header -->
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-2">
+          <h1 class="scroll-m-24 text-3xl font-semibold tracking-tight sm:text-3xl">
+            Components
+          </h1>
+          <p class="text-[1.05rem] text-muted-foreground sm:text-base sm:text-balance md:max-w-[80%]">
+            A set of beautifully designed components that you can customize, extend, and build on.
+          </p>
+        </div>
+      </div>
 
-  <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-    {#each components as component}
-      <a
-        href="/docs/components/{component.name}"
-        class="group rounded-lg border p-4 transition-colors hover:bg-accent"
-      >
-        <div class="font-semibold group-hover:text-accent-foreground">{component.label}</div>
-        <div class="text-sm text-muted-foreground">{component.category}</div>
-      </a>
-    {/each}
+      <!-- Components Grid -->
+      <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        {#each components as component}
+          <a
+            href="/docs/components/{component.name}"
+            class="group flex items-center rounded-md border px-3 py-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+          >
+            {component.label}
+          </a>
+        {/each}
+      </div>
+    </div>
   </div>
 </div>

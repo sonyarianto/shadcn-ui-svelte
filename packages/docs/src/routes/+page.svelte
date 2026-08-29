@@ -2,124 +2,134 @@
   import { Button } from '@shadcn-ui-svelte/components';
 </script>
 
-<div class="container mx-auto px-4">
-  <!-- Hero Section -->
-  <section class="py-20 text-center">
-    <div class="mx-auto max-w-3xl">
-      <div class="mb-4 inline-flex items-center rounded-full border bg-muted px-3 py-1 text-sm">
-        ✨ New: Svelte 5 with Runes
-      </div>
-      <h1 class="mb-6 text-5xl font-bold tracking-tight">
-        shadcn/ui for <span class="text-primary">Svelte</span>
-      </h1>
-      <p class="mb-8 text-lg text-muted-foreground">
-        Beautifully designed components built with Svelte 5 and Tailwind CSS.
-        A 1:1 port of <a href="https://ui.shadcn.com" class="text-primary underline">shadcn/ui</a> for the Svelte ecosystem.
-      </p>
-      <div class="flex items-center justify-center gap-4">
-        <a href="/docs/installation">
-          <Button size="lg">Get Started</Button>
-        </a>
-        <a href="/components">
-          <Button variant="outline" size="lg">Components</Button>
-        </a>
-      </div>
+<div class="flex flex-1 flex-col">
+  <!-- Hero -->
+  <section class="container mx-auto flex flex-col items-center gap-4 pb-12 pt-16 text-center md:pt-24 lg:pt-32">
+    <div class="inline-flex items-center rounded-full border bg-muted px-3 py-1 text-sm">
+      New: Svelte 5 with Runes
+    </div>
+    <h1 class="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+      The Foundation for your Design System
+    </h1>
+    <p class="max-w-2xl text-base text-muted-foreground sm:text-lg">
+      A set of beautifully designed components that you can customize, extend, and build on.
+      Start here then make it your own. Open Source. Open Code.
+    </p>
+    <div class="flex items-center gap-4">
+      <a href="/docs/installation">
+        <Button class="rounded-lg">Build Your Own</Button>
+      </a>
+      <a href="/docs/components">
+        <Button variant="outline" class="rounded-lg">Components</Button>
+      </a>
     </div>
   </section>
 
-  <!-- Features -->
-  <section class="py-16">
-    <div class="grid gap-8 md:grid-cols-3">
-      <div class="rounded-lg border p-6">
-        <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-primary">
-            <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-            <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/>
-          </svg>
-        </div>
-        <h3 class="mb-2 text-lg font-semibold">Copy & Paste</h3>
-        <p class="text-sm text-muted-foreground">
-          Own your components. Copy source code directly into your project.
-          No black-box dependencies.
-        </p>
+  <!-- Dashboard Preview -->
+  <section class="container mx-auto flex-1 px-4 pb-16">
+    <div class="overflow-hidden rounded-xl border bg-background shadow-2xl">
+      <div class="flex h-10 items-center gap-1.5 border-b bg-muted/50 px-4">
+        <div class="h-3 w-3 rounded-full bg-red-500"></div>
+        <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
+        <div class="h-3 w-3 rounded-full bg-green-500"></div>
       </div>
-      <div class="rounded-lg border p-6">
-        <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-primary">
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-            <line x1="12" y1="22.08" x2="12" y2="12"/>
-          </svg>
-        </div>
-        <h3 class="mb-2 text-lg font-semibold">Zero Runtime</h3>
-        <p class="text-sm text-muted-foreground">
-          No external JavaScript dependencies. Built with native browser APIs
-          for maximum performance.
-        </p>
-      </div>
-      <div class="rounded-lg border p-6">
-        <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-primary">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <h3 class="mb-2 text-lg font-semibold">Accessible</h3>
-        <p class="text-sm text-muted-foreground">
-          Built with ARIA attributes, keyboard navigation, and focus management
-          out of the box.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Component Preview -->
-  <section class="py-16">
-    <h2 class="mb-8 text-center text-3xl font-bold">Components</h2>
-    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-      <div class="rounded-lg border p-4">
-        <div class="mb-4 flex items-center gap-2">
-          <Button>Button</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="outline">Outline</Button>
-        </div>
-        <p class="text-sm text-muted-foreground">6 variants, 6 sizes</p>
-      </div>
-      <div class="rounded-lg border p-4">
-        <div class="mb-4 flex items-center gap-2">
-          <div class="inline-flex items-center rounded-md bg-primary px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">Default</div>
-          <div class="inline-flex items-center rounded-md bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground">Secondary</div>
-          <div class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold">Outline</div>
-        </div>
-        <p class="text-sm text-muted-foreground">4 variants</p>
-      </div>
-      <div class="rounded-lg border p-4">
-        <div class="mb-4">
-          <input type="text" placeholder="Input..." class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm" />
-        </div>
-        <p class="text-sm text-muted-foreground">Text, email, password, number</p>
-      </div>
-      <div class="rounded-lg border p-4">
-        <div class="mb-4 flex items-center gap-2">
-          <div class="relative inline-flex h-5 w-9 items-center rounded-full bg-primary">
-            <span class="absolute left-1 block h-4 w-4 rounded-full bg-white transition-transform translate-x-4"></span>
+      <div class="grid min-h-[500px] lg:grid-cols-[240px_1fr]">
+        <!-- Sidebar -->
+        <div class="hidden border-r bg-muted/30 p-4 lg:block">
+          <div class="mb-6 flex items-center gap-2">
+            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground text-xs font-bold">A</div>
+            <span class="text-sm font-medium">Acme Inc</span>
           </div>
-          <span class="text-sm">Switch</span>
+          <nav class="space-y-1">
+            <div class="rounded-md bg-accent px-3 py-1.5 text-sm font-medium text-accent-foreground">Overview</div>
+            <div class="rounded-md px-3 py-1.5 text-sm text-muted-foreground hover:bg-accent">Analytics</div>
+            <div class="rounded-md px-3 py-1.5 text-sm text-muted-foreground hover:bg-accent">Customers</div>
+            <div class="rounded-md px-3 py-1.5 text-sm text-muted-foreground hover:bg-accent">Products</div>
+            <div class="rounded-md px-3 py-1.5 text-sm text-muted-foreground hover:bg-accent">Settings</div>
+          </nav>
         </div>
-        <p class="text-sm text-muted-foreground">Toggle with keyboard support</p>
+        <!-- Content -->
+        <div class="p-6">
+          <div class="mb-6">
+            <h2 class="text-2xl font-bold">Dashboard</h2>
+            <p class="text-sm text-muted-foreground">Welcome back, here's what's happening.</p>
+          </div>
+          <div class="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-lg border p-4">
+              <p class="text-sm text-muted-foreground">Total Revenue</p>
+              <p class="text-2xl font-bold">$45,231.89</p>
+              <p class="text-xs text-muted-foreground">+20.1% from last month</p>
+            </div>
+            <div class="rounded-lg border p-4">
+              <p class="text-sm text-muted-foreground">Subscriptions</p>
+              <p class="text-2xl font-bold">+2350</p>
+              <p class="text-xs text-muted-foreground">+180.1% from last month</p>
+            </div>
+            <div class="rounded-lg border p-4">
+              <p class="text-sm text-muted-foreground">Active Now</p>
+              <p class="text-2xl font-bold">+573</p>
+              <p class="text-xs text-muted-foreground">+19% from last hour</p>
+            </div>
+            <div class="rounded-lg border p-4">
+              <p class="text-sm text-muted-foreground">Conversion</p>
+              <p class="text-2xl font-bold">3.2%</p>
+              <p class="text-xs text-muted-foreground">+0.5% from last week</p>
+            </div>
+          </div>
+          <div class="rounded-lg border">
+            <div class="border-b p-4">
+              <h3 class="font-semibold">Recent Sales</h3>
+              <p class="text-sm text-muted-foreground">265 sales this month</p>
+            </div>
+            <div class="divide-y">
+              <div class="flex items-center justify-between p-4">
+                <div class="flex items-center gap-3">
+                  <div class="flex h-9 w-9 items-center justify-center rounded-full bg-muted text-sm font-medium">OM</div>
+                  <div>
+                    <p class="text-sm font-medium">Olivia Martin</p>
+                    <p class="text-xs text-muted-foreground">olivia@email.com</p>
+                  </div>
+                </div>
+                <p class="text-sm font-medium">+$1,999.00</p>
+              </div>
+              <div class="flex items-center justify-between p-4">
+                <div class="flex items-center gap-3">
+                  <div class="flex h-9 w-9 items-center justify-center rounded-full bg-muted text-sm font-medium">JL</div>
+                  <div>
+                    <p class="text-sm font-medium">Jackson Lee</p>
+                    <p class="text-xs text-muted-foreground">jackson@email.com</p>
+                  </div>
+                </div>
+                <p class="text-sm font-medium">+$39.00</p>
+              </div>
+              <div class="flex items-center justify-between p-4">
+                <div class="flex items-center gap-3">
+                  <div class="flex h-9 w-9 items-center justify-center rounded-full bg-muted text-sm font-medium">IN</div>
+                  <div>
+                    <p class="text-sm font-medium">Isabella Nguyen</p>
+                    <p class="text-xs text-muted-foreground">isabella@email.com</p>
+                  </div>
+                </div>
+                <p class="text-sm font-medium">+$299.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-16 text-center">
-    <div class="rounded-lg border bg-muted/50 p-12">
-      <h2 class="mb-4 text-3xl font-bold">Ready to build?</h2>
-      <p class="mb-8 text-muted-foreground">
-        Start adding components to your Svelte project today.
+  <!-- Footer -->
+  <footer class="border-t py-8">
+    <div class="container mx-auto flex flex-col items-center justify-between gap-4 px-4 sm:flex-row">
+      <p class="text-sm text-muted-foreground">
+        Built by <a href="https://github.com/sonyarianto" target="_blank" rel="noopener noreferrer" class="font-medium underline underline-offset-4">Sony AK</a> at
+        <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" class="font-medium underline underline-offset-4">Vercel</a>.
+        The source code is available on <a href="https://github.com/sonyarianto/shadcn-ui-svelte" target="_blank" rel="noopener noreferrer" class="font-medium underline underline-offset-4">GitHub</a>.
       </p>
-      <div class="flex justify-center gap-4">
-        <code class="rounded-lg bg-background px-4 py-2 text-sm">npx shadcn-ui-svelte init</code>
-      </div>
+      <a href="/docs/installation">
+        <Button variant="outline" size="sm" class="rounded-lg">Get Code</Button>
+      </a>
     </div>
-  </section>
+  </footer>
 </div>
