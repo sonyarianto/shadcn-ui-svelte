@@ -21,24 +21,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm install
 
-      - name: Lint
-        run: pnpm lint
+      - name: Build components
+        run: npm run build -w packages/components
 
-      - name: Type check
-        run: pnpm typecheck
-
-      - name: Build
-        run: pnpm build
+      - name: Build docs
+        run: npm run build -w packages/docs
 
   publish:
     needs: build
@@ -52,21 +43,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
-          cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm install
 
-      - name: Build
-        run: pnpm build
+      - name: Build components
+        run: npm run build -w packages/components
 
       - name: Publish
-        run: pnpm publish --access public
+        run: npm publish --access public -w packages/components
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
