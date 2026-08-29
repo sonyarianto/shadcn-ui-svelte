@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Search from '$lib/components/search.svelte';
 </script>
 
 <div class="container mx-auto px-4 py-12">
