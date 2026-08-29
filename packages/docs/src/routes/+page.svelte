@@ -25,9 +25,9 @@
         </p>
         <div class="flex w-full items-center justify-center gap-2 pt-2 **:data-[slot=button]:shadow-none">
           <a href="/create?preset=b27GcrRo">
-            <Button class="h-[31px] rounded-lg">
+            <Button class="!gap-1.5 !px-2.5 !py-0 h-[31px] rounded-lg hover:bg-primary/80 has-data-[icon=inline-end]:!pr-2 has-data-[icon=inline-start]:!pl-2">
               Build Your Own
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              <svg data-icon="inline-end" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </Button>
           </a>
         </div>
