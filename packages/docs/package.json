@@ -20,7 +20,7 @@
     "vite": "^6.0.0"
   },
   "dependencies": {
-    "@shadcn-ui-svelte/components": "workspace:*",
+    "@shadcn-ui-svelte/components": "file:../components",
     "clsx": "^2.1.0",
     "tailwind-merge": "^3.0.0"
   }

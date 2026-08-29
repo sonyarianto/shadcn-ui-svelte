@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@shadcn-ui-svelte/components": "workspace:*"
+    "@shadcn-ui-svelte/components": "file:../components"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.0.0",
