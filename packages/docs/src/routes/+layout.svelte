@@ -63,8 +63,8 @@
 
 <div class="min-h-svh bg-background font-sans text-foreground antialiased">
   <header class="sticky top-0 z-50 w-full bg-background" style="height: var(--header-height);">
-    <div class="mx-auto w-full px-2 3xl:max-w-[calc(var(--breakpoint-2xl)+2rem)]">
-      <div class="flex h-(--header-height) items-center px-4 3xl:mx-auto 3xl:max-w-screen-2xl 3xl:px-0 lg:px-8">
+    <div class="container-wrapper px-6">
+      <div class="flex h-(--header-height) items-center 3xl:container">
         <!-- Mobile nav -->
         <button
           onclick={() => isMobileMenuOpen = !isMobileMenuOpen}

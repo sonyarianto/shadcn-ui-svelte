@@ -9,9 +9,9 @@
 
 <div class="flex flex-1 flex-col">
   <!-- Hero -->
-  <section class="border-border border-b">
-    <div class="mx-auto w-full px-2">
-      <div class="mx-auto flex max-w-[1400px] flex-col items-center gap-2 px-6 py-8 text-center md:py-16 lg:py-20 xl:gap-4 lg:px-8 3xl:max-w-screen-2xl">
+  <section class="border-grid border-b">
+    <div class="container-wrapper">
+      <div class="container flex flex-col items-center gap-2 px-6 py-8 text-center md:py-16 lg:py-20 xl:gap-4">
         <a href="/docs/changelog" class="inline-flex items-center gap-1 rounded-full border bg-muted px-3 py-1 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">
           New Questionnaire component
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -36,8 +36,8 @@
   </section>
 
   <!-- Cards Demo -->
-  <div class="flex-1 p-0">
-    <div class="mx-auto max-w-[1400px] overflow-hidden px-4 lg:max-w-none lg:px-0 3xl:max-w-screen-2xl">
+  <div class="container-wrapper flex-1 p-0">
+    <div class="container overflow-hidden md:px-0 lg:max-w-none">
       <div
         class="theme-neutral relative flex w-full max-w-none flex-col gap-8 overflow-hidden bg-muted p-12 pb-0 dark:bg-background lg:p-6 lg:gap-6 min-[1900px]:p-12 min-[1900px]:gap-10"
         style="--gap: var(--spacing, 0.25rem) * 8;"
