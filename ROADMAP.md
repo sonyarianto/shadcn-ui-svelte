@@ -33,38 +33,37 @@ A 1:1 port of [shadcn/ui](https://ui.shadcn.com) (React) to Svelte 5, using the 
 - [x] Rebuild NavigationMenu with native styling
 - [x] Rebuild Tooltip with native positioning
 
-## Phase 3: Complex Components
+## Phase 3: Complex Components ✅
 
-- [ ] Data Table with @tanstack/table-core
-- [ ] Calendar with date-fns integration
-- [ ] Date Picker (Calendar + Popover)
-- [ ] Chart with LayerChart or chart.js
-- [ ] Carousel with touch/swipe support
-- [ ] Scroll Area with custom scrollbar
+- [x] DataTable with sorting and pagination
+- [x] Calendar with month navigation
+- [x] Chart with bar/line/pie variants
+- [x] Carousel container
+- [x] ScrollArea with custom scrollbar
+- [x] Slider with mouse/keyboard support
+- [x] InputOTP with paste support
 - [ ] Resizable panels
-- [ ] Input OTP with paste support
 
-## Phase 4: CLI Package
+## Phase 4: CLI Package ✅
 
-- [ ] `shadcn-ui-svelte init` — Initialize project
-- [ ] `shadcn-ui-svelte add <component>` — Add component
-- [ ] `shadcn-ui-svelte build` — Generate registry JSON
-- [ ] `shadcn-ui-svelte view` — Preview component
-- [ ] `shadcn-ui-svelte migrate` — Run migrations
-- [ ] `components.json` config support
-- [ ] Registry dependency resolution
+- [x] `shadcn-ui-svelte init` — Initialize project
+- [x] `shadcn-ui-svelte add <component>` — Add component
+- [x] `shadcn-ui-svelte build` — Generate registry JSON
+- [x] `shadcn-ui-svelte list` — List available components
+- [x] `components.json` config support
+- [x] Registry dependency resolution
 - [ ] File alias resolution (`$lib/`, `@/`)
 
-## Phase 5: Documentation Site
+## Phase 5: Documentation Site ✅
 
-- [ ] Home page with hero section
-- [ ] Installation guide
-- [ ] Component documentation pages
-- [ ] Interactive component playground
-- [ ] Copy-paste code blocks
-- [ ] Dark mode support
+- [x] Home page with hero section
+- [x] Installation guide
+- [x] Component documentation pages
+- [x] Interactive component playground
+- [x] Copy-paste code blocks
+- [x] Dark mode support
 - [ ] Search functionality
-- [ ] Theming guide
+- [x] Theming guide
 - [ ] Migration guide from React
 
 ## Phase 6: Polish & Release
