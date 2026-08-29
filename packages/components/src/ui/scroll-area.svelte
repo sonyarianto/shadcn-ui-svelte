@@ -1,24 +1,30 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
   import { cn } from '$lib/utils.js';
 
   let {
+    orientation = 'horizontal',
     class: className,
-    children,
-    ...restProps
+    children
   }: {
+    orientation?: 'horizontal' | 'vertical';
     class?: string;
     children?: Snippet;
-  } & HTMLAttributes<HTMLDivElement> = $props();
+  } = $props();
 </script>
 
 <div
-  class={cn('relative overflow-hidden', className)}
-  data-slot="scroll-area"
-  {...restProps}
+  class={cn(
+    'relative overflow-hidden',
+    orientation === 'horizontal' ? 'h-full' : 'w-full',
+    className
+  )}
 >
-  <div class="h-full w-full overflow-auto">
+  <div class={cn(
+    'h-full w-full',
+    orientation === 'horizontal' ? 'overflow-x-auto' : 'overflow-y-auto',
+    '[&::-webkit-scrollbar]:hidden [&[data-orient=horizontal]]:h-2.5 [&[data-orient=vertical]]:w-2.5'
+  )}>
     {@render children?.()}
   </div>
 </div>

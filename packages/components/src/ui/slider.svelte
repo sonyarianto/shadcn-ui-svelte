@@ -1,30 +1,75 @@
 <script lang="ts">
-  import type { HTMLInputAttributes } from 'svelte/elements';
   import { cn } from '$lib/utils.js';
 
   let {
-    value = $bindable(0),
+    class: className,
+    defaultValue = 50,
     min = 0,
     max = 100,
-    step = 1,
-    class: className,
-    ...restProps
+    value = $bindable(defaultValue),
+    onValueChange
   }: {
-    value?: number;
+    class?: string;
+    defaultValue?: number;
     min?: number;
     max?: number;
-    step?: number;
-    class?: string;
-  } & HTMLInputAttributes = $props();
+    value?: number;
+    onValueChange?: (value: number) => void;
+  } = $props();
+
+  let isDragging = $state(false);
+  let trackEl: HTMLElement;
+
+  function calculateValue(clientX: number) {
+    if (!trackEl) return value;
+    const rect = trackEl.getBoundingClientRect();
+    const percentage = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    return Math.round(min + percentage * (max - min));
+  }
+
+  function handleMouseDown(event: MouseEvent) {
+    isDragging = true;
+    value = calculateValue(event.clientX);
+    onValueChange?.(value);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+  }
+
+  function handleMouseMove(event: MouseEvent) {
+    if (isDragging) {
+      value = calculateValue(event.clientX);
+      onValueChange?.(value);
+    }
+  }
+
+  function handleMouseUp() {
+    isDragging = false;
+    document.removeEventListener('mousemove', handleMouseMove);
+    document.removeEventListener('mouseup', handleMouseUp);
+  }
+
+  function handleKeyDown(event: KeyboardEvent) {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowUp') {
+      value = Math.min(max, value + 1);
+      onValueChange?.(value);
+    } else if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') {
+      value = Math.max(min, value - 1);
+      onValueChange?.(value);
+    }
+  }
 
   const percentage = $derived(((value - min) / (max - min)) * 100);
 </script>
 
 <div
   class={cn('relative flex w-full touch-none select-none items-center', className)}
-  data-slot="slider"
+  data-orientation="horizontal"
 >
-  <div class="relative h-1.5 w-full grow overflow-hidden rounded-full bg-primary/20">
+  <div
+    bind:this={trackEl}
+    class="relative h-1.5 w-full grow overflow-hidden rounded-full bg-primary/20 cursor-pointer"
+    onmousedown={handleMouseDown}
+  >
     <div
       class="absolute h-full bg-primary"
       style="width: {percentage}%"
@@ -35,8 +80,7 @@
     bind:value
     {min}
     {max}
-    {step}
     class="absolute w-full cursor-pointer opacity-0"
-    {...restProps}
+    onkeydown={handleKeyDown}
   />
 </div>
