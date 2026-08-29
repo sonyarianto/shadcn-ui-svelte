@@ -1,0 +1,15 @@
+{
+  "name": "shadcn-ui-svelte",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter docs dev",
+    "build": "pnpm --filter @shadcn-ui-svelte/components build",
+    "check": "pnpm --filter @shadcn-ui-svelte/components check",
+    "lint": "pnpm -r lint",
+    "format": "pnpm -r format"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.0",
+    "prettier-plugin-svelte": "^3.4.0"
+  }
+}
