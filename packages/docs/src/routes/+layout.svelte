@@ -1,7 +1,6 @@
 <script lang="ts">
   import '../shadcn.css';
   import { page } from '$app/stores';
-  import Search from '$lib/components/search.svelte';
 
   let { children } = $props();
 
@@ -13,10 +12,11 @@
   }
 
   const navItems = [
-    { href: '/docs', label: 'Docs' },
+    { href: '/docs', label: 'Introduction' },
     { href: '/docs/installation', label: 'Installation' },
     { href: '/components', label: 'Components' },
     { href: '/docs/theming', label: 'Theming' },
+    { href: '/docs/cli', label: 'CLI' },
     { href: '/docs/migration', label: 'Migration' }
   ];
 </script>
@@ -30,7 +30,8 @@
           <path d="m15 9-6 6"/>
           <path d="m9 9 6 6"/>
         </svg>
-        <span class="font-bold">shadcn/ui Svelte</span>
+        <span class="font-bold">shadcn/ui</span>
+        <span class="text-xs text-muted-foreground">Svelte</span>
       </a>
       <nav class="flex items-center gap-6 text-sm">
         {#each navItems as item}
@@ -43,7 +44,6 @@
         {/each}
       </nav>
       <div class="ml-auto flex items-center gap-2">
-        <Search />
         <a
           href="https://github.com/sonyarianto/shadcn-ui-svelte"
           target="_blank"
