@@ -29,19 +29,18 @@
   <meta name="theme-color" content="#ffffff" />
 </svelte:head>
 
-<div class="min-h-svh bg-background text-foreground">
-  <header class="sticky top-0 z-50 h-14 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 lg:h-16">
-    <div class="container mx-auto flex h-full items-center px-4">
-      <a href="/" class="mr-6 flex items-center gap-2 lg:mr-8">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 lg:h-6 lg:w-6">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="m15 9-6 6"/>
-          <path d="m9 9 6 6"/>
-        </svg>
-        <span class="hidden font-bold lg:inline-block">shadcn/ui</span>
-      </a>
-
+<div class="min-h-svh bg-background font-sans text-foreground antialiased" style="--header-height: 3.5rem;">
+  <header class="sticky top-0 z-50 w-full bg-background" style="height: var(--header-height);">
+    <div class="mx-auto flex h-full w-full max-w-[1400px] items-center px-4 lg:px-8">
       <nav class="hidden items-center gap-1 text-sm lg:flex">
+        <a href="/" class="mr-6 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="m15 9-6 6"/>
+            <path d="m9 9 6 6"/>
+          </svg>
+          <span class="font-bold">shadcn/ui</span>
+        </a>
         {#each navItems as item}
           <a
             href={item.href}
@@ -65,6 +64,8 @@
           </svg>
           GitHub
         </a>
+
+        <div class="ml-2 hidden h-4 w-px bg-border lg:block"></div>
 
         <button
           onclick={toggleTheme}

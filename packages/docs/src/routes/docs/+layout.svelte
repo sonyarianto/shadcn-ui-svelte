@@ -70,19 +70,19 @@
   ];
 </script>
 
-<div class="container-wrapper flex flex-1 flex-col px-2">
-  <div class="min-h-min flex-1 items-start px-0 lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]">
+<div class="mx-auto w-full px-2">
+  <div class="min-h-min flex-1 items-start px-0 lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]" style="--sidebar-width: 16rem;">
     <!-- Sidebar -->
-    <aside class="sticky top-14 z-30 hidden h-[calc(100svh-3.5rem)] overflow-hidden lg:top-16 lg:block lg:h-[calc(100svh-4rem)]">
-      <div class="h-full overflow-y-auto pb-12 pr-4 pl-2.5">
+    <aside class="sticky z-30 hidden overflow-hidden overscroll-none lg:flex lg:h-[calc(100svh-10rem)]" style="top: calc(var(--header-height) + 0.6rem);">
+      <div class="h-full overflow-y-auto pb-12 pl-2.5 pr-4">
         <!-- Sections -->
-        <div class="mb-4">
-          <h4 class="mb-1 px-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Sections</h4>
+        <div class="mb-4 pt-12">
+          <h4 class="mb-1 px-2 text-sm font-medium text-muted-foreground">Sections</h4>
           <nav class="space-y-0.5">
             {#each sections as section}
               <a
                 href={section.href}
-                class="block rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground {$page.url.pathname === section.href || ($page.url.pathname === '/docs' && section.href === '/docs') ? 'bg-accent text-accent-foreground font-medium' : 'text-muted-foreground'}"
+                class="relative flex h-[30px] w-fit items-center overflow-visible rounded-md border border-transparent px-2 text-[0.8rem] font-medium transition-colors hover:bg-accent hover:text-accent-foreground {$page.url.pathname === section.href || ($page.url.pathname === '/docs' && section.href === '/docs') ? 'border-accent bg-accent' : 'text-muted-foreground'}"
               >
                 {section.name}
               </a>
@@ -92,12 +92,12 @@
 
         <!-- Components -->
         <div>
-          <h4 class="mb-1 px-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Components</h4>
+          <h4 class="mb-1 px-2 text-sm font-medium text-muted-foreground">Components</h4>
           <nav class="space-y-0.5">
             {#each components as component}
               <a
                 href="/docs/components/{component.name}"
-                class="block rounded-md px-2 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground {$page.url.pathname === `/docs/components/${component.name}` ? 'bg-accent text-accent-foreground font-medium' : 'text-muted-foreground'}"
+                class="relative flex h-[30px] w-fit items-center overflow-visible rounded-md border border-transparent px-2 text-[0.8rem] font-medium transition-colors hover:bg-accent hover:text-accent-foreground {$page.url.pathname === `/docs/components/${component.name}` ? 'border-accent bg-accent' : 'text-muted-foreground'}"
               >
                 {component.label}
               </a>
