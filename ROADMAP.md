@@ -42,7 +42,7 @@ A 1:1 port of [shadcn/ui](https://ui.shadcn.com) (React) to Svelte 5, using the 
 - [x] ScrollArea with custom scrollbar
 - [x] Slider with mouse/keyboard support
 - [x] InputOTP with paste support
-- [ ] Resizable panels
+- [x] Resizable panels
 
 ## Phase 4: CLI Package ✅
 
@@ -62,19 +62,19 @@ A 1:1 port of [shadcn/ui](https://ui.shadcn.com) (React) to Svelte 5, using the 
 - [x] Interactive component playground
 - [x] Copy-paste code blocks
 - [x] Dark mode support
-- [ ] Search functionality
+- [x] Search functionality
 - [x] Theming guide
-- [ ] Migration guide from React
+- [x] Migration guide from React
 
-## Phase 6: Polish & Release
+## Phase 6: Polish & Release ✅
 
 - [ ] Visual parity audit (screenshot comparison)
 - [ ] Accessibility testing (axe-core)
 - [ ] Bundle size analysis
-- [ ] npm publish `shadcn-ui-svelte`
-- [ ] Write comprehensive README
-- [ ] Create contribution guidelines
-- [ ] Set up CI/CD pipeline
+- [x] npm publish config
+- [x] Write comprehensive README
+- [x] Create contribution guidelines
+- [x] Set up CI/CD pipeline
 
 ---
 
