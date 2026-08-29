@@ -1,0 +1,27 @@
+{
+  "name": "shadcn-ui-svelte",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "shadcn-ui-svelte": "./src/index.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "commander": "^13.0.0",
+    "execa": "^9.0.0",
+    "glob": "^11.0.0",
+    "prompts": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  },
+  "keywords": ["svelte", "shadcn", "ui", "components", "cli"],
+  "license": "MIT"
+}

@@ -2,5 +2,182 @@
   "$schema": "https://shadcn-ui-svelte.com/schema/registry.json",
   "name": "shadcn-ui-svelte",
   "homepage": "https://shadcn-ui-svelte.com",
-  "items": []
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "A collapsible content component",
+      "files": [{ "path": "ui/accordion.svelte", "type": "registry:ui" }],
+      "registryDependencies": ["accordion-item", "accordion-trigger", "accordion-content"]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Displays a callout for important information",
+      "files": [{ "path": "ui/alert.svelte", "type": "registry:ui" }],
+      "registryDependencies": ["alert-title", "alert-description"]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Displays a badge or a component that looks like a badge",
+      "files": [{ "path": "ui/badge.svelte", "type": "registry:ui" }],
+      "registryDependencies": []
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Displays a button or a component that looks like a button",
+      "files": [{ "path": "ui/button.svelte", "type": "registry:ui" }],
+      "registryDependencies": []
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Displays a card with header, content, and footer",
+      "files": [{ "path": "ui/card.svelte", "type": "registry:ui" }],
+      "registryDependencies": ["card-header", "card-title", "card-description", "card-content", "card-footer"]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A control that allows the user to toggle between checked and not checked",
+      "files": [{ "path": "ui/checkbox.svelte", "type": "registry:ui" }],
+      "registryDependencies": []
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A window overlaid on the primary content",
+      "files": [{ "path": "ui/dialog.svelte", "type": "registry:ui" }],
+      "registryDependencies": ["dialog-overlay", "dialog-content", "dialog-header", "dialog-title", "dialog-description", "dialog-close", "dialog-footer"]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Displays a menu to the user triggered by a button",
+      "files": [{ "path": "ui/dropdown-menu.svelte", "type": "registry:ui" }],
+      "registryDependencies": ["dropdown-menu-content", "dropdown-menu-label", "dropdown-menu-separator", "dropdown-menu-group", "dropdown-menu-item"]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Displays a form input field or a component that looks like an input field",
+      "files": [{ "path": "ui/input.svelte", "type": "registry:ui" }],
+      "registryDependencies": []
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Renders an accessible label associated with form controls",
+      "files": [{ "path": "ui/label.svelte", "type": "registry:ui" }],
+      "registryDependencies": []
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "A collection of links for navigating a website",
+      "files": [{ "path": "ui/navigation-menu.svelte", "type": "registry:ui" }],
+      "registryDependencies": ["navigation-menu-list", "navigation-menu-item", "navigation-menu-trigger", "navigation-menu-content", "navigation-menu-viewport", "navigation-menu-link"]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Displays rich content in a portal, triggered by a button",
+      "files": [{ "path": "ui/popover.svelte", "type": "registry:ui" }],
+      "registryDependencies": ["popover-content"]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Shows completion progress of a task",
+      "files": [{ "path": "ui/progress.svelte", "type": "registry:ui" }],
+      "registryDependencies": []
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Displays a list of options for the user to pick from",
+      "files": [{ "path": "ui/select.svelte", "type": "registry:ui" }],
+      "registryDependencies": ["select-trigger", "select-content", "select-item", "select-label", "select-separator"]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Visually or semantically separates content",
+      "files": [{ "path": "ui/separator.svelte", "type": "registry:ui" }],
+      "registryDependencies": []
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Use to show a placeholder while content is loading",
+      "files": [{ "path": "ui/skeleton.svelte", "type": "registry:ui" }],
+      "registryDependencies": []
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A control that allows the user to toggle between checked and not checked",
+      "files": [{ "path": "ui/switch.svelte", "type": "registry:ui" }],
+      "registryDependencies": []
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "A flexible table component",
+      "files": [{ "path": "ui/table.svelte", "type": "registry:ui" }],
+      "registryDependencies": ["table-header", "table-body", "table-row", "table-head", "table-cell", "table-caption"]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "A set of layered sections of content, known as tab panels",
+      "files": [{ "path": "ui/tabs.svelte", "type": "registry:ui" }],
+      "registryDependencies": ["tabs-list", "tabs-trigger", "tabs-content"]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Displays a form textarea or a component that looks like a textarea",
+      "files": [{ "path": "ui/textarea.svelte", "type": "registry:ui" }],
+      "registryDependencies": []
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "A two-state button that can be either on or off",
+      "files": [{ "path": "ui/toggle.svelte", "type": "registry:ui" }],
+      "registryDependencies": ["toggle-group"]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A popup that displays information related to an element",
+      "files": [{ "path": "ui/tooltip.svelte", "type": "registry:ui" }],
+      "registryDependencies": ["tooltip-content"]
+    }
+  ]
 }

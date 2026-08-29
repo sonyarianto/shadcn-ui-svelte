@@ -2,7 +2,7 @@
 
 ## shadcn/ui → Svelte 5 Port
 
-A 1:1 port of [shadcn/ui](https://ui.shadcn.com) (React) to Svelte 5, using the latest Svelte 5.57.0, Tailwind CSS v4, and bits-ui for headless primitives.
+A 1:1 port of [shadcn/ui](https://ui.shadcn.com) (React) to Svelte 5, using the latest Svelte 5.57.0 and Tailwind CSS v4. Zero external JavaScript runtime dependencies.
 
 ---
 
@@ -17,16 +17,21 @@ A 1:1 port of [shadcn/ui](https://ui.shadcn.com) (React) to Svelte 5, using the 
 - [x] Scaffold SvelteKit docs site
 - [x] Create 62 unique components (134 files)
 
-## Phase 2: Headless Primitives (In Progress)
+## Phase 2: Native Accessible Primitives ✅
 
-- [ ] Wire up `bits-ui` for Dialog, Sheet, Popover, Tooltip
-- [ ] Wire up `bits-ui` for Select, Dropdown Menu, Context Menu
-- [ ] Wire up `bits-ui` for Accordion, Collapsible, Tabs
-- [ ] Wire up `bits-ui` for Checkbox, Radio Group, Switch
-- [ ] Wire up `bits-ui` for Navigation Menu, Menubar
-- [ ] Wire up `bits-ui` for Command, Combobox
-- [ ] Wire up `vaul-svelte` for Drawer
-- [ ] Wire up `cmdk` for Command palette
+- [x] Remove bits-ui dependency (zero external JS runtime)
+- [x] Create focus-trap.ts (focus trapping, focus management)
+- [x] Create keyboard.ts (grid navigation, arrow key handling)
+- [x] Create portal.ts (portal utility for overlays)
+- [x] Create context.ts (Svelte context for compound components)
+- [x] Rebuild Dialog with native focus trap and escape handling
+- [x] Rebuild Select with native keyboard navigation
+- [x] Rebuild Accordion with native open/close state
+- [x] Rebuild Tabs with native tab switching
+- [x] Rebuild Checkbox/Switch with native ARIA roles
+- [x] Rebuild DropdownMenu with native click outside handling
+- [x] Rebuild NavigationMenu with native styling
+- [x] Rebuild Tooltip with native positioning
 
 ## Phase 3: Complex Components
 
@@ -82,11 +87,18 @@ A 1:1 port of [shadcn/ui](https://ui.shadcn.com) (React) to Svelte 5, using the 
 | SvelteKit | 2.70.3 |
 | Tailwind CSS | v4 |
 | TypeScript | 5.x |
-| bits-ui | Latest |
-| vaul-svelte | Latest |
-| @tanstack/table-core | Latest |
-| date-fns | Latest |
+| @tanstack/table-core | Latest (optional) |
+| date-fns | Latest (optional) |
 | Package Manager | pnpm |
+
+## Dependencies
+
+| Package | Purpose | Required |
+|---------|---------|----------|
+| clsx | Conditional classnames | Yes |
+| tailwind-merge | Tailwind class deduplication | Yes |
+
+**Zero JavaScript runtime dependencies.** All accessibility handling is built with native browser APIs.
 
 ## Component Count
 
