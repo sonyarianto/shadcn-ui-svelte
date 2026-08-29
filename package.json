@@ -1,12 +1,15 @@
 {
   "name": "shadcn-ui-svelte",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "pnpm --filter docs dev",
-    "build": "pnpm --filter @shadcn-ui-svelte/components build",
-    "check": "pnpm --filter @shadcn-ui-svelte/components check",
-    "lint": "pnpm -r lint",
-    "format": "pnpm -r format"
+    "dev": "npm run dev --workspace=packages/docs",
+    "build": "npm run build --workspace=packages/components",
+    "check": "npm run check --workspace=packages/components",
+    "lint": "npm run lint --workspaces",
+    "format": "npm run format --workspaces"
   },
   "devDependencies": {
     "prettier": "^3.5.0",
