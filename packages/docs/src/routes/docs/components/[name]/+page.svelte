@@ -2,7 +2,7 @@
   import { page } from '$app/stores';
   import { Button, Badge, Card, CardHeader, CardTitle, CardDescription, CardContent, Input, Textarea, Label, Switch, Checkbox, Slider, Alert, AlertTitle, AlertDescription, Progress, Skeleton, Tabs, TabsList, TabsTrigger, TabsContent, Separator, Select, Dialog, Popover, Tooltip, Accordion } from '@shadcn-ui-svelte/components';
 
-  const $componentName = $derived($page.params.name);
+  const componentName = $derived($page.params.name);
 
   const componentExamples: Record<string, { title: string; description: string; examples: Array<{ name: string; code: string }> }> = {
     button: {
@@ -121,9 +121,9 @@
     }
   };
 
-  const data = $derived(componentExamples[$componentName] || {
-    title: $componentName.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-    description: `A ${$componentName} component for Svelte.`,
+  const data = $derived(componentExamples[componentName] || {
+    title: componentName.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+    description: `A ${componentName} component for Svelte.`,
     examples: []
   });
 
@@ -149,7 +149,7 @@
   <div class="mb-8">
     <h2 class="mb-4 text-xl font-semibold">Installation</h2>
     <div class="rounded-lg border bg-muted/50 p-4">
-      <code class="text-sm">npx shadcn-ui-svelte add {$componentName}</code>
+      <code class="text-sm">npx shadcn-ui-svelte add {componentName}</code>
     </div>
   </div>
 
