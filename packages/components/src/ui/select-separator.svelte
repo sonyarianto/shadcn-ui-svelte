@@ -1,14 +1,14 @@
 <script lang="ts">
-  import { Select } from 'bits-ui';
   import { cn } from '$lib/utils.js';
 
   let {
-    class: className,
-    ...restProps
-  }: Select.SeparatorProps = $props();
+    class: className
+  }: {
+    class?: string;
+  } = $props();
 </script>
 
-<Select.Separator
+<div
+  role="separator"
   class={cn('-mx-1 my-1 h-px bg-muted', className)}
-  {...restProps}
-/>
+></div>

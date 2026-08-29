@@ -1,25 +1,45 @@
 <script lang="ts">
-  import { Checkbox } from 'bits-ui';
   import { cn } from '$lib/utils.js';
 
   let {
     checked = $bindable(false),
     disabled = false,
-    class: className,
-    ...restProps
-  }: Checkbox.RootProps = $props();
+    class: className
+  }: {
+    checked?: boolean;
+    disabled?: boolean;
+    class?: string;
+  } = $props();
+
+  function toggle() {
+    if (!disabled) {
+      checked = !checked;
+    }
+  }
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === ' ' || event.key === 'Enter') {
+      event.preventDefault();
+      toggle();
+    }
+  }
 </script>
 
-<Checkbox.Root
-  bind:checked
+<button
+  type="button"
+  role="checkbox"
+  aria-checked={checked}
   {disabled}
+  data-state={checked ? 'checked' : 'unchecked'}
   class={cn(
     'peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+    checked ? 'bg-primary text-primary-foreground' : 'bg-background',
     className
   )}
-  {...restProps}
+  onclick={toggle}
+  onkeydown={handleKeydown}
 >
-  <Checkbox.Indicator class="flex items-center justify-center text-current">
+  {#if checked}
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
@@ -32,5 +52,5 @@
     >
       <polyline points="20 6 9 17 4 12"></polyline>
     </svg>
-  </Checkbox.Indicator>
-</Checkbox.Root>
+  {/if}
+</button>

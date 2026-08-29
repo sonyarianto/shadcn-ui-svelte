@@ -1,14 +1,14 @@
 <script lang="ts">
-  import { DropdownMenu } from 'bits-ui';
   import { cn } from '$lib/utils.js';
 
   let {
-    class: className,
-    ...restProps
-  }: DropdownMenu.SeparatorProps = $props();
+    class: className
+  }: {
+    class?: string;
+  } = $props();
 </script>
 
-<DropdownMenu.Separator
+<div
+  role="separator"
   class={cn('-mx-1 my-1 h-px bg-muted', className)}
-  {...restProps}
-/>
+></div>

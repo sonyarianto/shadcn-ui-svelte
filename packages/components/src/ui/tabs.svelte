@@ -1,20 +1,30 @@
 <script lang="ts">
-  import { Tabs } from 'bits-ui';
   import type { Snippet } from 'svelte';
+  import { setTabsContext, type TabsContext } from '$lib/context.js';
   import { cn } from '$lib/utils.js';
 
   let {
     value = $bindable(''),
     class: className,
-    children,
-    ...restProps
-  }: Tabs.RootProps & { children?: Snippet } = $props();
+    children
+  }: {
+    value?: string;
+    class?: string;
+    children?: Snippet;
+  } = $props();
+
+  function onValueChange(newValue: string) {
+    value = newValue;
+  }
+
+  setTabsContext({ value, onValueChange } as TabsContext);
+
+  $effect(() => {
+    const ctx = getTabsContext();
+    ctx.value = value;
+  });
 </script>
 
-<Tabs.Root
-  bind:value
-  class={cn('w-full', className)}
-  {...restProps}
->
+<div class={cn('w-full', className)}>
   {@render children?.()}
-</Tabs.Root>
+</div>

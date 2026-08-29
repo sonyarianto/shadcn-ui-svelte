@@ -1,14 +1,18 @@
 <script lang="ts">
-  import { Dialog } from 'bits-ui';
   import { cn } from '$lib/utils.js';
+  import type { Snippet } from 'svelte';
 
   let {
     class: className,
-    ...restProps
-  }: Dialog.TitleProps = $props();
+    children
+  }: {
+    class?: string;
+    children?: Snippet;
+  } = $props();
 </script>
 
-<Dialog.Title
+<h2
   class={cn('text-lg font-semibold leading-none tracking-tight', className)}
-  {...restProps}
-/>
+>
+  {@render children?.()}
+</h2>

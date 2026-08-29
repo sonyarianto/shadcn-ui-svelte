@@ -1,14 +1,18 @@
 <script lang="ts">
-  import { Select } from 'bits-ui';
+  import type { Snippet } from 'svelte';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
-    ...restProps
-  }: Select.LabelProps = $props();
+    children
+  }: {
+    class?: string;
+    children?: Snippet;
+  } = $props();
 </script>
 
-<Select.Label
+<div
   class={cn('py-1.5 pl-8 pr-2 text-sm font-semibold', className)}
-  {...restProps}
-/>
+>
+  {@render children?.()}
+</div>

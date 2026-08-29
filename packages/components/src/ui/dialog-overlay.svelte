@@ -1,17 +1,23 @@
 <script lang="ts">
-  import { Dialog } from 'bits-ui';
+  import { getDialogContext } from '$lib/context.js';
   import { cn } from '$lib/utils.js';
 
   let {
-    class: className,
-    ...restProps
-  }: Dialog.OverlayProps = $props();
+    class: className
+  }: {
+    class?: string;
+  } = $props();
+
+  const ctx = getDialogContext();
 </script>
 
-<Dialog.Overlay
-  class={cn(
-    'fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
-    className
-  )}
-  {...restProps}
-/>
+{#if ctx.open}
+  <div
+    class={cn(
+      'fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+      className
+    )}
+    data-state={ctx.open ? 'open' : 'closed'}
+    onclick={() => ctx.onOpenChange(false)}
+  ></div>
+{/if}

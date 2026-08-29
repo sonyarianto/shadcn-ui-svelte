@@ -1,26 +1,54 @@
 <script lang="ts">
-  import { Select } from 'bits-ui';
+  import type { Snippet } from 'svelte';
+  import { getSelectContext } from '$lib/context.js';
   import { cn } from '$lib/utils.js';
 
   let {
-    class: className,
-    value,
+    value: itemValue,
     disabled = false,
-    ...restProps
-  }: Select.ItemProps = $props();
+    class: className,
+    children
+  }: {
+    value: string;
+    disabled?: boolean;
+    class?: string;
+    children?: Snippet;
+  } = $props();
+
+  const ctx = getSelectContext();
+  const isSelected = $derived(ctx.value === itemValue);
+
+  function select() {
+    if (!disabled) {
+      ctx.onValueChange(itemValue);
+      ctx.onOpenChange(false);
+    }
+  }
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === ' ' || event.key === 'Enter') {
+      event.preventDefault();
+      select();
+    }
+  }
 </script>
 
-<Select.Item
-  {value}
+<div
+  role="option"
+  aria-selected={isSelected}
   {disabled}
+  data-value={itemValue}
   class={cn(
-    'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+    'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+    disabled ? 'pointer-events-none opacity-50' : '',
+    isSelected ? 'bg-accent text-accent-foreground' : '',
     className
   )}
-  {...restProps}
+  onclick={select}
+  onkeydown={handleKeydown}
 >
   <span class="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">
-    <Select.ItemIndicator>
+    {#if isSelected}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -35,7 +63,13 @@
       >
         <polyline points="20 6 9 17 4 12"></polyline>
       </svg>
-    </Select.ItemIndicator>
+    {/if}
   </span>
-  <Select.ItemText />
-</Select.Item>
+  <span class="truncate">
+    {#if children}
+      {@render children({ selected: isSelected })}
+    {:else}
+      {itemValue}
+    {/if}
+  </span>
+</div>

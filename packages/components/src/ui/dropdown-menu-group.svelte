@@ -1,18 +1,18 @@
 <script lang="ts">
-  import { DropdownMenu } from 'bits-ui';
   import type { Snippet } from 'svelte';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
-    children,
-    ...restProps
-  }: DropdownMenu.GroupProps & { children?: Snippet } = $props();
+    children
+  }: {
+    class?: string;
+    children?: Snippet;
+  } = $props();
 </script>
 
-<DropdownMenu.Group
+<div
   class={cn('px-2 py-1.5 text-sm font-semibold', className)}
-  {...restProps}
 >
   {@render children?.()}
-</DropdownMenu.Group>
+</div>

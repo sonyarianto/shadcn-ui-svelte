@@ -1,17 +1,21 @@
 <script lang="ts">
-  import { NavigationMenu } from 'bits-ui';
+  import type { Snippet } from 'svelte';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
-    ...restProps
-  }: NavigationMenu.ContentProps = $props();
+    children
+  }: {
+    class?: string;
+    children?: Snippet;
+  } = $props();
 </script>
 
-<NavigationMenu.Content
+<div
   class={cn(
     'absolute left-0 top-full z-50',
     className
   )}
-  {...restProps}
-/>
+>
+  {@render children?.()}
+</div>

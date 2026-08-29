@@ -1,21 +1,65 @@
 <script lang="ts">
-  import { DropdownMenu } from 'bits-ui';
+  import type { Snippet } from 'svelte';
+  import { getDropdownContext } from '$lib/context.js';
+  import { trapFocus, focusFirst } from '$lib/focus-trap.js';
   import { cn } from '$lib/utils.js';
+  import { onMount, onDestroy } from 'svelte';
 
   let {
     class: className,
     sideOffset = 4,
-    ...restProps
-  }: DropdownMenu.ContentProps = $props();
+    children
+  }: {
+    class?: string;
+    sideOffset?: number;
+    children?: Snippet;
+  } = $props();
+
+  const ctx = getDropdownContext();
+  let contentEl: HTMLElement;
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      ctx.onOpenChange(false);
+    }
+    if (contentEl) {
+      trapFocus(contentEl, event);
+    }
+  }
+
+  function handleClickOutside(event: MouseEvent) {
+    if (contentEl && !contentEl.contains(event.target as Node)) {
+      ctx.onOpenChange(false);
+    }
+  }
+
+  onMount(() => {
+    document.addEventListener('click', handleClickOutside);
+    if (ctx.open && contentEl) {
+      focusFirst(contentEl);
+    }
+  });
+
+  onDestroy(() => {
+    document.removeEventListener('click', handleClickOutside);
+  });
+
+  $effect(() => {
+    if (ctx.open && contentEl) {
+      focusFirst(contentEl);
+    }
+  });
 </script>
 
-<DropdownMenu.Portal>
-  <DropdownMenu.Content
+{#if ctx.open}
+  <div
+    bind:this={contentEl}
     class={cn(
-      'z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
+      'absolute z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md',
       className
     )}
-    {sideOffset}
-    {...restProps}
-  />
-</DropdownMenu.Portal>
+    onkeydown={handleKeydown}
+  >
+    {@render children?.()}
+  </div>
+{/if}

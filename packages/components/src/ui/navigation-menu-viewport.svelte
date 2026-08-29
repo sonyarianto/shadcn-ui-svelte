@@ -1,17 +1,21 @@
 <script lang="ts">
-  import { NavigationMenu } from 'bits-ui';
+  import type { Snippet } from 'svelte';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
-    ...restProps
-  }: NavigationMenu.ViewportProps = $props();
+    children
+  }: {
+    class?: string;
+    children?: Snippet;
+  } = $props();
 </script>
 
-<NavigationMenu.Viewport
+<div
   class={cn(
-    'relative mt-1.5 h-[var(--bits-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90',
+    'relative mt-1.5 overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg',
     className
   )}
-  {...restProps}
-/>
+>
+  {@render children?.()}
+</div>

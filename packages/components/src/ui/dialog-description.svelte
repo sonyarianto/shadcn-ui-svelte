@@ -1,14 +1,18 @@
 <script lang="ts">
-  import { Dialog } from 'bits-ui';
   import { cn } from '$lib/utils.js';
+  import type { Snippet } from 'svelte';
 
   let {
     class: className,
-    ...restProps
-  }: Dialog.DescriptionProps = $props();
+    children
+  }: {
+    class?: string;
+    children?: Snippet;
+  } = $props();
 </script>
 
-<Dialog.Description
+<p
   class={cn('text-sm text-muted-foreground', className)}
-  {...restProps}
-/>
+>
+  {@render children?.()}
+</p>

@@ -1,17 +1,21 @@
 <script lang="ts">
-  import { NavigationMenu } from 'bits-ui';
+  import type { Snippet } from 'svelte';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
-    ...restProps
-  }: NavigationMenu.LinkProps = $props();
+    children
+  }: {
+    class?: string;
+    children?: Snippet;
+  } = $props();
 </script>
 
-<NavigationMenu.Link
+<a
   class={cn(
     'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
     className
   )}
-  {...restProps}
-/>
+>
+  {@render children?.()}
+</a>

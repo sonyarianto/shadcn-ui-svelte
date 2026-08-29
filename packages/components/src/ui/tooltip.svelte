@@ -1,17 +1,18 @@
 <script lang="ts">
-  import { Tooltip } from 'bits-ui';
   import type { Snippet } from 'svelte';
   import { cn } from '$lib/utils.js';
 
   let {
     open = $bindable(false),
-    children,
-    ...restProps
-  }: Tooltip.RootProps & { children?: Snippet } = $props();
+    class: className,
+    children
+  }: {
+    open?: boolean;
+    class?: string;
+    children?: Snippet;
+  } = $props();
 </script>
 
-<Tooltip.Provider>
-  <Tooltip.Root bind:open {...restProps}>
-    {@render children?.()}
-  </Tooltip.Root>
-</Tooltip.Provider>
+<div class={cn('relative', className)}>
+  {@render children?.()}
+</div>

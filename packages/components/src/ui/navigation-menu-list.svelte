@@ -1,17 +1,21 @@
 <script lang="ts">
-  import { NavigationMenu } from 'bits-ui';
+  import type { Snippet } from 'svelte';
   import { cn } from '$lib/utils.js';
 
   let {
     class: className,
-    ...restProps
-  }: NavigationMenu.ListProps = $props();
+    children
+  }: {
+    class?: string;
+    children?: Snippet;
+  } = $props();
 </script>
 
-<NavigationMenu.List
+<ul
   class={cn(
     'group flex flex-1 list-none items-center justify-center space-x-1',
     className
   )}
-  {...restProps}
-/>
+>
+  {@render children?.()}
+</ul>

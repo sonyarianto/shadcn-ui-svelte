@@ -1,15 +1,25 @@
 <script lang="ts">
-  import { Dialog } from 'bits-ui';
   import type { Snippet } from 'svelte';
-  import { cn } from '$lib/utils.js';
+  import { setDialogContext, type DialogContext } from '$lib/context.js';
 
   let {
     open = $bindable(false),
-    children,
-    ...restProps
-  }: Dialog.RootProps & { children?: Snippet } = $props();
+    children
+  }: {
+    open?: boolean;
+    children?: Snippet;
+  } = $props();
+
+  function onOpenChange(value: boolean) {
+    open = value;
+  }
+
+  setDialogContext({ open, onOpenChange } as DialogContext);
+
+  $effect(() => {
+    const ctx = getDialogContext();
+    ctx.open = open;
+  });
 </script>
 
-<Dialog.Root bind:open {...restProps}>
-  {@render children?.()}
-</Dialog.Root>
+{@render children?.()}

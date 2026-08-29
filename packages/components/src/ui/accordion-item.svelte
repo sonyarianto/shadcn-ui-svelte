@@ -1,14 +1,46 @@
 <script lang="ts">
-  import { Accordion } from 'bits-ui';
+  import type { Snippet } from 'svelte';
+  import { getAccordionContext } from '$lib/context.js';
   import { cn } from '$lib/utils.js';
 
   let {
+    value: itemValue,
+    disabled = false,
     class: className,
-    ...restProps
-  }: Accordion.ItemProps = $props();
+    children
+  }: {
+    value: string;
+    disabled?: boolean;
+    class?: string;
+    children?: Snippet;
+  } = $props();
+
+  const ctx = getAccordionContext();
+
+  const isOpen = $derived(
+    ctx.type === 'single'
+      ? ctx.value === itemValue
+      : Array.isArray(ctx.value) && ctx.value.includes(itemValue)
+  );
+
+  function toggle() {
+    if (disabled) return;
+
+    if (ctx.type === 'single') {
+      ctx.onValueChange(isOpen ? '' : itemValue);
+    } else {
+      const current = Array.isArray(ctx.value) ? ctx.value : [];
+      ctx.onValueChange(
+        isOpen ? current.filter((v) => v !== itemValue) : [...current, itemValue]
+      );
+    }
+  }
 </script>
 
-<Accordion.Item
+<div
   class={cn('border-b', className)}
-  {...restProps}
-/>
+  data-state={isOpen ? 'open' : 'closed'}
+  {...$$restProps}
+>
+  {@render children?.({ isOpen, toggle, disabled })}
+</div>

@@ -1,20 +1,98 @@
 <script lang="ts">
-  import { Select } from 'bits-ui';
+  import type { Snippet } from 'svelte';
+  import { getSelectContext } from '$lib/context.js';
   import { cn } from '$lib/utils.js';
+  import { trapFocus, focusFirst, getFocusableElements } from '$lib/focus-trap.js';
+  import { onMount, onDestroy } from 'svelte';
 
   let {
     class: className,
-    ...restProps
-  }: Select.TriggerProps = $props();
+    children
+  }: {
+    class?: string;
+    children?: Snippet;
+  } = $props();
+
+  const ctx = getSelectContext();
+  let triggerEl: HTMLElement;
+  let contentEl: HTMLElement;
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      ctx.onOpenChange(false);
+      triggerEl?.focus();
+    }
+    if (contentEl) {
+      trapFocus(contentEl, event);
+    }
+  }
+
+  function handleClickOutside(event: MouseEvent) {
+    if (
+      contentEl &&
+      !contentEl.contains(event.target as Node) &&
+      triggerEl &&
+      !triggerEl.contains(event.target as Node)
+    ) {
+      ctx.onOpenChange(false);
+    }
+  }
+
+  onMount(() => {
+    document.addEventListener('click', handleClickOutside);
+    if (ctx.open && contentEl) {
+      focusFirst(contentEl);
+    }
+  });
+
+  onDestroy(() => {
+    document.removeEventListener('click', handleClickOutside);
+  });
+
+  $effect(() => {
+    if (ctx.open && contentEl) {
+      focusFirst(contentEl);
+    }
+  });
 </script>
 
-<Select.Trigger
+<button
+  bind:this={triggerEl}
+  type="button"
   class={cn(
     'flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
     className
   )}
-  {...restProps}
+  aria-expanded={ctx.open}
+  onclick={() => ctx.onOpenChange(!ctx.open)}
 >
   <slot />
-  <Select.Icon class="h-4 w-4 opacity-50" />
-</Select.Trigger>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="h-4 w-4 opacity-50"
+  >
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+</button>
+
+{#if ctx.open}
+  <div
+    bind:this={contentEl}
+    class={cn(
+      'absolute z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md',
+      className
+    )}
+    role="listbox"
+    onkeydown={handleKeydown}
+  >
+    {@render children?.()}
+  </div>
+{/if}
