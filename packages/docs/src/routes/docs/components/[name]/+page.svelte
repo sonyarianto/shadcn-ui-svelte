@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { Button, Badge, Card, CardHeader, CardTitle, CardDescription, CardContent, Input, Textarea, Label, Switch, Checkbox, Slider, Alert, AlertTitle, AlertDescription, Progress, Skeleton, Tabs, TabsList, TabsTrigger, TabsContent, Separator, SeparatorVertical } from '@shadcn-ui-svelte/components';
+  import { Button, Badge, Card, CardHeader, CardTitle, CardDescription, CardContent, Input, Textarea, Label, Switch, Checkbox, Slider, Alert, AlertTitle, AlertDescription, Progress, Skeleton, Tabs, TabsList, TabsTrigger, TabsContent, Separator } from '@shadcn-ui-svelte/components';
 
   const componentName = $derived($page.params.name);
 
