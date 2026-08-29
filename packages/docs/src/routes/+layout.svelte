@@ -100,7 +100,7 @@
         <div class="ml-auto flex items-center gap-2 md:flex-1 md:justify-end">
           <!-- Search placeholder -->
           <div class="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
-            <button class="relative inline-flex h-8 w-full items-center justify-start rounded-lg border-none bg-muted pl-3 text-sm text-foreground shadow-none transition-colors hover:bg-muted/50 dark:bg-card md:w-48 lg:w-40 xl:w-64">
+            <button class="relative inline-flex h-8 w-full shrink-0 items-center justify-start rounded-lg border-none bg-muted pl-3 text-sm font-medium text-foreground shadow-none transition-all outline-none hover:bg-muted/50 dark:bg-card md:w-48 lg:w-40 xl:w-64">
               <span class="hidden xl:inline-flex">Search documentation...</span>
               <span class="inline-flex xl:hidden">Search...</span>
             </button>
