@@ -139,7 +139,7 @@
             </svg>
           </button>
 
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 group-has-data-[slot=designer]/layout:hidden">
             <div class="h-4 w-px bg-border hidden lg:block"></div>
 
             <!-- New button -->
