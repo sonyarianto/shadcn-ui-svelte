@@ -64,7 +64,7 @@
 <div class="min-h-svh bg-background font-sans text-foreground antialiased">
   <header class="sticky top-0 z-50 w-full bg-background" style="height: var(--header-height);">
     <div class="container-wrapper px-6">
-      <div class="flex h-(--header-height) items-center 3xl:container">
+      <div class="flex h-(--header-height) items-center">
         <!-- Mobile nav -->
         <button
           onclick={() => isMobileMenuOpen = !isMobileMenuOpen}
