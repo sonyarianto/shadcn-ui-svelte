@@ -16,7 +16,7 @@
   } = $props();
 
   const ctx = getDropdownContext();
-  let contentEl: HTMLElement;
+  let contentEl: HTMLElement | undefined = $state();
 
   function handleKeydown(event: KeyboardEvent) {
     if (event.key === 'Escape') {
@@ -58,6 +58,8 @@
       'absolute z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md',
       className
     )}
+    role="menu"
+    tabindex="-1"
     onkeydown={handleKeydown}
   >
     {@render children?.()}

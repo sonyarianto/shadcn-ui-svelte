@@ -68,6 +68,11 @@
   <div
     bind:this={trackEl}
     class="relative h-1.5 w-full grow overflow-hidden rounded-full bg-primary/20 cursor-pointer"
+    role="slider"
+    aria-label="Slider"
+    aria-valuemin={min}
+    aria-valuemax={max}
+    aria-valuenow={value}
     onmousedown={handleMouseDown}
   >
     <div

@@ -1,15 +1,19 @@
 <script lang="ts">
-  import { Popover } from 'bits-ui';
   import type { Snippet } from 'svelte';
-  import { cn } from '../lib/utils.js';
+  import { setPopoverContext } from '../lib/context.js';
 
   let {
     open = $bindable(false),
-    children,
-    ...restProps
-  }: Popover.RootProps & { children?: Snippet } = $props();
+    children
+  }: {
+    open?: boolean;
+    children?: Snippet;
+  } = $props();
+
+  setPopoverContext({
+    get open() { return open; },
+    onOpenChange: (value: boolean) => { open = value; }
+  });
 </script>
 
-<Popover.Root bind:open {...restProps}>
-  {@render children?.()}
-</Popover.Root>
+{@render children?.()}

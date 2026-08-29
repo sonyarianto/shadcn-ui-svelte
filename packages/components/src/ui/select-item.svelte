@@ -36,6 +36,7 @@
 <div
   role="option"
   aria-selected={isSelected}
+  tabindex="-1"
   {disabled}
   data-value={itemValue}
   class={cn(

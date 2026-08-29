@@ -94,3 +94,18 @@ export function setRadioContext(context: RadioGroupContext) {
 export function getRadioContext(): RadioGroupContext {
   return getContext(RADIO_KEY);
 }
+
+export interface PopoverContext {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
+
+const POPOVER_KEY = Symbol('popover');
+
+export function setPopoverContext(context: PopoverContext) {
+  setContext(POPOVER_KEY, context);
+}
+
+export function getPopoverContext(): PopoverContext {
+  return getContext(POPOVER_KEY);
+}

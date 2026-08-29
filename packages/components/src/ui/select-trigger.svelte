@@ -15,7 +15,7 @@
 
   const ctx = getSelectContext();
   let triggerEl: HTMLElement;
-  let contentEl: HTMLElement;
+  let contentEl: HTMLElement | undefined = $state();
 
   function handleKeydown(event: KeyboardEvent) {
     if (event.key === 'Escape') {
@@ -91,6 +91,7 @@
       className
     )}
     role="listbox"
+    tabindex="-1"
     onkeydown={handleKeydown}
   >
     {@render children?.()}

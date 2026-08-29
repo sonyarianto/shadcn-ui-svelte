@@ -9,6 +9,12 @@
   } = $props();
 
   const ctx = getDialogContext();
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      ctx.onOpenChange(false);
+    }
+  }
 </script>
 
 {#if ctx.open}
@@ -18,6 +24,8 @@
       className
     )}
     data-state={ctx.open ? 'open' : 'closed'}
+    role="presentation"
     onclick={() => ctx.onOpenChange(false)}
+    onkeydown={handleKeydown}
   ></div>
 {/if}

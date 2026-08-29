@@ -14,7 +14,7 @@
   } = $props();
 
   const ctx = getDialogContext();
-  let contentEl: HTMLElement;
+  let contentEl: HTMLElement | undefined = $state();
 
   function handleKeydown(event: KeyboardEvent) {
     if (event.key === 'Escape') {
@@ -59,6 +59,7 @@
       className
     )}
     data-state={ctx.open ? 'open' : 'closed'}
+    tabindex="-1"
     onkeydown={handleKeydown}
     onclick={handleClick}
   >

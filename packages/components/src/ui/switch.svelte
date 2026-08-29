@@ -4,11 +4,13 @@
   let {
     checked = $bindable(false),
     disabled = false,
-    class: className
+    class: className,
+    'aria-label': ariaLabel = 'Toggle'
   }: {
     checked?: boolean;
     disabled?: boolean;
     class?: string;
+    'aria-label'?: string;
   } = $props();
 
   function toggle() {
@@ -29,6 +31,7 @@
   type="button"
   role="switch"
   aria-checked={checked}
+  aria-label={ariaLabel}
   {disabled}
   data-state={checked ? 'checked' : 'unchecked'}
   class={cn(

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { setAccordionContext, type AccordionContext } from '../lib/context.js';
+  import { setAccordionContext, getAccordionContext, type AccordionContext } from '../lib/context.js';
   import { cn } from '../lib/utils.js';
 
   let {
@@ -19,12 +19,11 @@
     value = newValue;
   }
 
-  setAccordionContext({ value, onValueChange, type } as AccordionContext);
-
-  $effect(() => {
-    const ctx = getAccordionContext();
-    ctx.value = value;
-  });
+  setAccordionContext({
+    get value() { return value; },
+    onValueChange,
+    get type() { return type; }
+  } as AccordionContext);
 </script>
 
 <div class={cn('space-y-2', className)}>
