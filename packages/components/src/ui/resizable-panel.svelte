@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { cn } from '$lib/utils.js';
-  import { context } from '$lib/context.js';
+  import { cn } from '../lib/utils.js';
+  import { context } from '../lib/context.js';
 
   type ResizableGroupContext = {
     direction: 'horizontal' | 'vertical';

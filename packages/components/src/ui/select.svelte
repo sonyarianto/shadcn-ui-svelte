@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { setSelectContext, type SelectContext } from '$lib/context.js';
-  import { cn } from '$lib/utils.js';
+  import { setSelectContext, type SelectContext } from '../lib/context.js';
+  import { cn } from '../lib/utils.js';
 
   let {
     value = $bindable(undefined),

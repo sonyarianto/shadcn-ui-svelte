@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { getSelectContext } from '$lib/context.js';
-  import { cn } from '$lib/utils.js';
-  import { trapFocus, focusFirst, getFocusableElements } from '$lib/focus-trap.js';
+  import { getSelectContext } from '../lib/context.js';
+  import { cn } from '../lib/utils.js';
+  import { trapFocus, focusFirst, getFocusableElements } from '../lib/focus-trap.js';
   import { onMount, onDestroy } from 'svelte';
 
   let {
@@ -66,7 +66,7 @@
   aria-expanded={ctx.open}
   onclick={() => ctx.onOpenChange(!ctx.open)}
 >
-  <slot />
+  {@render children?.()}
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"

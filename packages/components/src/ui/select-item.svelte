@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { getSelectContext } from '$lib/context.js';
-  import { cn } from '$lib/utils.js';
+  import { getSelectContext } from '../lib/context.js';
+  import { cn } from '../lib/utils.js';
 
   let {
     value: itemValue,

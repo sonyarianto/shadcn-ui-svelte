@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { setDialogContext, type DialogContext } from '$lib/context.js';
+  import { setDialogContext, type DialogContext } from '../lib/context.js';
 
   let {
     open = $bindable(false),

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { getDialogContext } from '$lib/context.js';
-  import { cn } from '$lib/utils.js';
+  import { getDialogContext } from '../lib/context.js';
+  import { cn } from '../lib/utils.js';
 
   let {
     class: className

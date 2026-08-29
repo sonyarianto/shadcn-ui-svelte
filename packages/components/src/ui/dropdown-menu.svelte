@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { setDropdownContext, type DropdownMenuContext } from '$lib/context.js';
-  import { cn } from '$lib/utils.js';
+  import { setDropdownContext, type DropdownMenuContext } from '../lib/context.js';
+  import { cn } from '../lib/utils.js';
 
   let {
     open = $bindable(false),

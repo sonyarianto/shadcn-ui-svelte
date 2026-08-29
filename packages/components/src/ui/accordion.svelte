@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { setAccordionContext, type AccordionContext } from '$lib/context.js';
-  import { cn } from '$lib/utils.js';
+  import { setAccordionContext, type AccordionContext } from '../lib/context.js';
+  import { cn } from '../lib/utils.js';
 
   let {
     type = 'single',

@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { getAccordionContext } from '$lib/context.js';
-  import { cn } from '$lib/utils.js';
+  import { getAccordionContext } from '../lib/context.js';
+  import { cn } from '../lib/utils.js';
 
   let {
     value: itemValue,
@@ -40,7 +40,6 @@
 <div
   class={cn('border-b', className)}
   data-state={isOpen ? 'open' : 'closed'}
-  {...$$restProps}
 >
   {@render children?.({ isOpen, toggle, disabled })}
 </div>

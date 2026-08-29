@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { getDialogContext } from '$lib/context.js';
-  import { trapFocus, focusFirst } from '$lib/focus-trap.js';
-  import { cn } from '$lib/utils.js';
+  import { getDialogContext } from '../lib/context.js';
+  import { trapFocus, focusFirst } from '../lib/focus-trap.js';
+  import { cn } from '../lib/utils.js';
   import { onMount, onDestroy } from 'svelte';
 
   let {

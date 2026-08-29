@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { setTabsContext, type TabsContext } from '$lib/context.js';
-  import { cn } from '$lib/utils.js';
+  import { setTabsContext, type TabsContext } from '../lib/context.js';
+  import { cn } from '../lib/utils.js';
 
   let {
     value = $bindable(''),
