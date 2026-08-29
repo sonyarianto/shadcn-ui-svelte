@@ -26,6 +26,7 @@
     { name: 'popover', label: 'Popover', category: 'Overlay' },
     { name: 'progress', label: 'Progress', category: 'Feedback' },
     { name: 'radio-group', label: 'Radio Group', category: 'Input' },
+    { name: 'resizable', label: 'Resizable', category: 'Layout' },
     { name: 'scroll-area', label: 'Scroll Area', category: 'Layout' },
     { name: 'select', label: 'Select', category: 'Input' },
     { name: 'separator', label: 'Separator', category: 'Layout' },

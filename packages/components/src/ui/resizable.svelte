@@ -1,25 +1,25 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
   import { cn } from '$lib/utils.js';
 
   let {
+    direction = 'horizontal',
     class: className,
-    children,
-    ...restProps
+    children
   }: {
+    direction?: 'horizontal' | 'vertical';
     class?: string;
     children?: Snippet;
-  } & HTMLAttributes<HTMLDivElement> = $props();
+  } = $props();
 </script>
 
 <div
   class={cn(
-    'relative overflow-hidden',
+    'flex h-full w-full',
+    direction === 'vertical' && 'flex-col',
     className
   )}
-  data-slot="resizable"
-  {...restProps}
+  data-orientation={direction}
 >
   {@render children?.()}
 </div>

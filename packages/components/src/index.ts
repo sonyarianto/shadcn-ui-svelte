@@ -98,6 +98,8 @@ export { default as Questionnaire } from './ui/questionnaire.svelte';
 export { default as RadioGroup } from './ui/radio-group.svelte';
 export { default as RadioGroupItem } from './ui/radio-group-item.svelte';
 export { default as Resizable } from './ui/resizable.svelte';
+export { default as ResizablePanel } from './ui/resizable-panel.svelte';
+export { default as ResizableHandle } from './ui/resizable-handle.svelte';
 export { default as ScrollArea } from './ui/scroll-area.svelte';
 export { default as ScrollAreaViewport } from './ui/scroll-area-viewport.svelte';
 export { default as Select } from './ui/select.svelte';
